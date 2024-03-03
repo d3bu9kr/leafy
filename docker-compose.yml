@@ -1,7 +1,6 @@
 version: '3'
 services:
   leafy-postgres:
-    platform: linux/arm64/v8
     image: peacebaro/leafy-postgres:d5a55384e46682fb4d738b461f170e916b27bc5f
     volumes:
       - mydata:/var/lib/postgresql/data
@@ -13,7 +12,6 @@ services:
     restart: always
 
   leafy-backend:
-    platform: linux/arm64/v8
     build: ./leafy-backend
     image: leafy-backend:5.0.0-compose
     environment:
@@ -28,7 +26,6 @@ services:
     restart: on-failure
       
   leafy-front:
-    platform: linux/arm64/v8
     image: peacebaro/leafy-frontend:94a4019470cdde1853b299b4a72f5aa3dadaad7d
     environment:
       - BACKEND_HOST=leafy-backend
